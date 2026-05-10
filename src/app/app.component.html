@@ -1,0 +1,200 @@
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="page">
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="assets/via-niolas.png" alt="" class="logo-img" decoding="async" />
+        <span class="brand-text">
+          <span class="brand-name">{{ agency.name }}</span>
+          <span class="brand-tag">{{ agency.tagline }}</span>
+        </span>
+      </div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#opening">Opening</a>
+        <a href="#services">Services</a>
+        <a href="#visit">Visit us</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="eyebrow fade-in">
+          <span class="eyebrow-dot"></span>
+          Grand opening · {{ agency.opening.dateLong }}
+        </p>
+        <h1 id="hero-heading" class="fade-in">
+          Crafted journeys,<br />
+          <span class="hero-accent">memorable departures</span>
+        </h1>
+        <p class="hero-lead fade-in delay">
+          {{ agency.name }} is your travel partner in {{ agency.region }}—flights, packages, visas, and tours with a human touch. Join us as we open our doors and help you plan what comes next.
+        </p>
+        <div class="hero-actions fade-in delay">
+          <a class="btn btn-primary" [href]="agency.mapUrl" target="_blank" rel="noopener noreferrer">
+            Get directions
+          </a>
+          <a class="btn btn-ghost" href="#contact">Talk to us</a>
+        </div>
+
+        <div class="location fade-in delay">
+          <a [href]="agency.mapUrl" target="_blank" rel="noopener noreferrer" class="location-card">
+            <span class="location-icon" aria-hidden="true">📍</span>
+            <div class="location-text">
+              <h2 class="location-title">Visit our new office</h2>
+              <p>{{ agency.addressLine }}</p>
+            </div>
+            <span class="location-action">Open map</span>
+          </a>
+        </div>
+
+        <div class="countdown slide-up" aria-live="polite" aria-atomic="true">
+          <p class="countdown-label">Countdown to opening night</p>
+          <div class="countdown-grid">
+            <div class="box">
+              <span class="box-value">{{ timeLeft.days }}</span>
+              <span class="box-unit">Days</span>
+            </div>
+            <div class="box">
+              <span class="box-value">{{ timeLeft.hours }}</span>
+              <span class="box-unit">Hours</span>
+            </div>
+            <div class="box">
+              <span class="box-value">{{ timeLeft.minutes }}</span>
+              <span class="box-unit">Min</span>
+            </div>
+            <div class="box">
+              <span class="box-value">{{ timeLeft.seconds }}</span>
+              <span class="box-unit">Sec</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="cta-strip pulse-label" role="status">
+          {{ agency.opening.weekday }} · {{ agency.opening.dateLong }} · {{ agency.opening.timeLocal }}
+          <span class="cta-strip-muted">({{ agency.opening.timezoneNote }})</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Opening highlight -->
+    <section id="opening" class="section section-opening">
+      <div class="section-inner">
+        <div class="opening-card">
+          <div class="opening-card-body">
+            <h2 class="section-title">You’re invited</h2>
+            <p class="section-intro">
+              Celebrate with us at the launch of {{ agency.name }}. Meet the team, explore how we plan trips, and pick up inspiration for your next destination—whether it’s a weekend escape or a long-haul dream.
+            </p>
+            <ul class="opening-facts">
+              <li>
+                <strong>When</strong>
+                {{ agency.opening.weekday }}, {{ agency.opening.dateLong }} · {{ agency.opening.timeLocal }}
+              </li>
+              <li>
+                <strong>Where</strong>
+                {{ agency.addressLine }}
+              </li>
+            </ul>
+          </div>
+          <div class="opening-card-aside">
+            <div class="glass-panel">
+              <span class="aside-label">Save the date</span>
+              <p class="aside-big">{{ agency.opening.dateLong }}</p>
+              <p class="aside-sub">{{ agency.opening.timeLocal }}</p>
+              <a class="btn btn-primary btn-block" [href]="agency.mapUrl" target="_blank" rel="noopener noreferrer">
+                Open in Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section section-services">
+      <div class="section-inner">
+        <header class="section-head">
+          <h2 class="section-title">How we can help</h2>
+          <p class="section-intro narrow">
+            Modern travel needs clear answers and quick follow-up. We combine reliable booking tools with local expertise so every itinerary feels considered—not generic.
+          </p>
+        </header>
+        <div class="service-grid">
+          <article *ngFor="let item of agency.services" class="service-card">
+            <span class="service-icon" aria-hidden="true">{{ item.icon }}</span>
+            <h3 class="service-title">{{ item.title }}</h3>
+            <p class="service-desc">{{ item.desc }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visit -->
+    <section id="visit" class="section section-visit">
+      <div class="section-inner visit-split">
+        <div>
+          <h2 class="section-title">Find us</h2>
+          <p class="section-intro">
+            We’re based in <strong>{{ agency.addressLine }}</strong>. Parking and exact entrance details can be confirmed when you book a visit or call ahead—especially during opening week.
+          </p>
+          <a class="btn btn-primary" [href]="agency.mapUrl" target="_blank" rel="noopener noreferrer">
+            Directions on Google Maps
+          </a>
+        </div>
+        <div class="visit-map-preview" aria-hidden="true">
+          <div class="map-placeholder">
+            <span>📍</span>
+            <span>Akkar Halba</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section-contact">
+      <div class="section-inner">
+        <header class="section-head">
+          <h2 class="section-title">Stay in touch</h2>
+          <p class="section-intro narrow">
+            Prefer WhatsApp? Need a quote for flights or a multi-stop tour? Reach out—we’ll respond as soon as we can.
+          </p>
+        </header>
+        <div class="contact-grid">
+          <a class="contact-card" [href]="'tel:' + agency.phoneTel">
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">{{ agency.phoneDisplay }}</span>
+          </a>
+          <a class="contact-card" [href]="'mailto:' + agency.email">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">{{ agency.email }}</span>
+          </a>
+          <a class="contact-card" [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">
+            <span class="contact-label">WhatsApp</span>
+            <span class="contact-value">Message us</span>
+          </a>
+        </div>
+        <p class="contact-footnote">We typically reply within one business day—faster on WhatsApp during opening week.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-name">{{ agency.name }}</span>
+        <span class="footer-tag">{{ agency.tagline }}</span>
+      </div>
+      <div class="footer-social">
+        <a [href]="agency.instagramUrl" target="_blank" rel="noopener noreferrer" class="social-link">Instagram</a>
+        <a [href]="agency.facebookUrl" target="_blank" rel="noopener noreferrer" class="social-link">Facebook</a>
+      </div>
+      <p class="footer-copy">© {{ agency.opening.dateLong.slice(-4) }} {{ agency.name }}. All rights reserved.</p>
+    </div>
+  </footer>
+</div>
