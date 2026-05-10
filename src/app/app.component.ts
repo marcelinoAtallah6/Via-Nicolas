@@ -10,12 +10,12 @@ const AGENCY = {
   mapUrl:
     'https://www.google.com/maps/place/34%C2%B032\'26.8%22N+36%C2%B004\'38.8%22E/@34.5406513,36.077375,19.75z/data=!4m4!3m3!8m2!3d34.5407829!4d36.077446?hl=en&entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D',
   /** Shown to visitors — replace with your real number */
-  phoneDisplay: '+961 3359636',
+  phoneDisplay: '+961 03359636',
   /** Digits with country code for tel: — no spaces */
-  phoneTel: '+96100000000',
+  phoneTel: '+96103359636',
   email: 'info@vianicolas.com',
   /** WhatsApp international format without + — replace digits */
-  whatsappDigits: '96100000000',
+  whatsappDigits: '96103359636',
   instagramUrl: 'https://www.instagram.com/rony.nicolas3/',
   facebookUrl: 'https://facebook.com/rony.nicolas3/',
   opening: {
@@ -58,7 +58,7 @@ const AGENCY = {
 export class AppComponent implements OnInit, OnDestroy {
   readonly agency = AGENCY;
 
-  /** Grand opening: June 6, 2026 at 6:00 PM Asia/Beirut */
+  /** Grand opening: June 6, 2026 at 7:00 PM Asia/Beirut */
   launchDate = new Date('2026-06-06T19:00:00+03:00');
   timeLeft: Record<'days' | 'hours' | 'minutes' | 'seconds', number> = {
     days: 0,
